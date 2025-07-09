@@ -18,7 +18,9 @@ public class BarChart
 
     private string svg;
 
-    private string color = "\"#c8c8c8\"";
+    private string color = "#c8c8c8";
+
+    private string font_family = "font-family=\"Helvetica\"";
 
     public BarChart(double[] y_data, string[] labels, double height, double width)
     {
@@ -42,16 +44,15 @@ public class BarChart
         return hc - (yc / maxy * hc) + padding;
     }
 
-    public static List<double> arange(double start, double end, double ratio)
+    public static List<double> arange(double end, double ratio)
     {
-        double n = ((end - 0) / ratio) + 1;
-        Console.WriteLine($"n-> {n}");
+        double n = (end / ratio) + 1;
 
         List<double> values = new List<double>();
 
         for (double i = 1; i < n; i++)
         {
-            double an = 0 + (i - 1) * ratio;
+            double an = (i - 1) * ratio;
             values.Add(an);
         }
 
@@ -71,12 +72,18 @@ public class BarChart
             double xp = padding + perfect_width * i;
             double yp = Math.Round(Plot_Y(y_data[i], y_data.Max()));
 
-            string color = color_bool ? "#459cff" : "#acb3bc";
+            string rect_color = color_bool ? "#459cff" : "#cecece";
 
-            string rect = $"<rect x=\"{xp + adjust}\" y=\"{yp}\" width=\"{perfect_width - adjust * 2}\" height=\"{height - padding - yp}\"  fill={color}/>\n";
+            double initial_x = xp + adjust;
+
+            double rect_width = perfect_width - adjust * 2;
+
+            double text_x = initial_x + (rect_width - (labels.Length/2) * font_size);
+
+            string rect = $"<rect x=\"{initial_x}\" y=\"{yp}\" width=\"{rect_width}\" height=\"{height - padding - yp}\"  fill=\"{rect_color}\"/>\n";
             svg += rect;
-
-            string text = $"<text x=\"{xp + adjust}\" y=\"{(height - padding) + font_size * 2}\" font-size=\"{font_size}\" fill={color}>{labels[i]}</text>\n";
+            // xp + adjust
+            string text = $"<text x=\"{text_x}\" y=\"{(height - padding) + font_size * 2}\" font-size=\"{font_size}\" fill=\"{color}\" {font_family}>{labels[i]}</text>\n";
             svg += text;
 
             color_bool = !color_bool;
@@ -107,7 +114,7 @@ public class BarChart
 
             }
 
-            string path = $"<path d=\"M {ix} {iy} L {fx} {fy}\" stroke={color} stroke-width=\"0.5\"/>\n";
+            string path = $"<path d=\"M {ix} {iy} L {fx} {fy}\" stroke=\"{color}\" stroke-width=\"0.5\"/>\n";
             svg += path;
 
         }
@@ -119,7 +126,7 @@ public class BarChart
         double Base = y_data.Min();
         double top = y_data.Max();
 
-        List<double> values = arange(Base, top, ticks);
+        List<double> values = arange(top, ticks);
         int size = values.Count;
  
         double jump = hc / (size - 1);
@@ -128,7 +135,9 @@ public class BarChart
 
         for (int i = 0; i < size; i++)
         {
-            string text = $"<text x=\"{padding - (font_size * 2)}\" y=\"{(hc + padding) - (i * jump)}\" font-size=\"{font_size}\" fill={color}>{values[i]}</text>\n";
+            double x = padding - (font_size * (values[i].ToString().Length));
+            double y = (hc + padding) - (i * jump);
+            string text = $"<text x=\"{x}\" y=\"{y}\" font-size=\"{font_size}\" fill=\"{color}\" {font_family}>{values[i]}</text>\n";
             svg += text;
 
         }
@@ -137,6 +146,9 @@ public class BarChart
 
     public void Launch(string? path, int ticks = 1)
     {
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+        Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
         if (y_data.Length != labels.Length)
         {
             throw new Exception("Erro! os dados possuem valores não representáveis");
