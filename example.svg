@@ -1,0 +1,36 @@
+<svg width="750" height="500" xmlns="http://www.w3.org/2000/svg">
+<path d="M 60 60 L 60 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 150 60 L 150 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 240 60 L 240 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 330 60 L 330 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 420 60 L 420 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 510 60 L 510 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 600 60 L 600 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 690 60 L 690 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 60 L 690 60" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 136 L 690 136" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 212 L 690 212" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 288 L 690 288" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 364 L 690 364" stroke="#c8c8c8" stroke-width="0.5"/>
+<path d="M 60 440 L 690 440" stroke="#c8c8c8" stroke-width="0.5"/>
+<text x="50" y="440" font-size="10" fill="#c8c8c8" font-family="Helvetica">0</text>
+<text x="30" y="364" font-size="10" fill="#c8c8c8" font-family="Helvetica">100</text>
+<text x="30" y="288" font-size="10" fill="#c8c8c8" font-family="Helvetica">200</text>
+<text x="30" y="212" font-size="10" fill="#c8c8c8" font-family="Helvetica">300</text>
+<text x="30" y="136" font-size="10" fill="#c8c8c8" font-family="Helvetica">400</text>
+<text x="30" y="60" font-size="10" fill="#c8c8c8" font-family="Helvetica">500</text>
+<rect x="82.5" y="432" width="45" height="8"  fill="#459cff"/>
+<text x="97.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">jan</text>
+<rect x="172.5" y="136" width="45" height="304"  fill="#cecece"/>
+<text x="187.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">fev</text>
+<rect x="262.5" y="212" width="45" height="228"  fill="#459cff"/>
+<text x="277.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">mar</text>
+<rect x="352.5" y="364" width="45" height="76"  fill="#cecece"/>
+<text x="367.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">apr</text>
+<rect x="442.5" y="136" width="45" height="304"  fill="#459cff"/>
+<text x="457.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">may</text>
+<rect x="532.5" y="60" width="45" height="380"  fill="#cecece"/>
+<text x="547.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">jun</text>
+<rect x="622.5" y="136" width="45" height="304"  fill="#459cff"/>
+<text x="637.5" y="460" font-size="10" fill="#c8c8c8" font-family="Helvetica">jul</text>
+</svg>
